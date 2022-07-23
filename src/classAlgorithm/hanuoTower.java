@@ -1,4 +1,4 @@
-//2022年7月22日23:34:55
+package classAlgorithm;//2022年7月22日23:34:55
 import java.util.Scanner;
 public class hanuoTower {
     public static int cnt = 0;
@@ -38,7 +38,7 @@ public class hanuoTower {
 }
 
 /*
-public class hanuoTower {
+public class classAlgorithm.hanuoTower {
     public static void main(String[] args){
         System.out.println("this is a test program!!");
     }

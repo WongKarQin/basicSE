@@ -1,7 +1,7 @@
 package basicSE;
 
 public class paramArgs {
-    /*
+    /*手动输入程序参数值
      *@param args
      */
     public static void main(String[] args){
