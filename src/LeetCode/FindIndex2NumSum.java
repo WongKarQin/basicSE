@@ -3,7 +3,6 @@ package LeetCode;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Hashtable;
-
 //LeetCode0001
 //2022年7月26日15:17:19
 //题目描述：给定一个整数数组 nums和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那两个整数，并返回它们的数组下标。
@@ -43,6 +42,7 @@ public class FindIndex2NumSum {
         }
         return result;
     }*/
+
 //方法2java自带的hash表数据结构
 //2022年7月26日16:16:31
     public static int[] Solution2(int[] nums, int target){
