@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class HeapSiftDown {
     public static int[] sift_down(int[] nums,int i){
         boolean flag = false;
-        if (2*i>nums.length) return new int[-1];
+        if (2*i>nums.length) return nums;
         do {
             i = 2*i;
             if((i+1<= nums.length) && nums[i]>nums[i-1]){

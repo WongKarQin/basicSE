@@ -13,17 +13,17 @@ import java.util.Scanner;
 public class HeapSiftUp {
     public static int[] sift_up(int[] heap,int index){
         boolean done = false;
-        if (index ==0) return new int[-1];
+        if (index ==1) return heap;
         do{
-            if(heap[index]>heap[(index-1)/2]){
-                int temp = heap[index];
-                heap[index]= heap[(index-1)/2];
-                heap[(index-1)/2]=temp;
+            if(heap[index-1]>heap[index/2-1]){
+                int temp = heap[index-1];
+                heap[index-1]= heap[index/2-1];
+                heap[index/2-1]=temp;
             }else{
                 done =true;
             }
-            index = (index-1)/2;
-        }while(index!=0 && !done);
+            index = index/2;
+        }while(index!=1 && !done);
         return heap;
     }
     public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class HeapSiftUp {
             System.out.print(arr[i]+" ");
         }
         System.out.println();
-        int[] result = sift_up(arr,9);
+        int[] result = sift_up(arr,10);
         for(int i =0;i<result.length;i++){
             System.out.print(result[i]+" ");
         }
