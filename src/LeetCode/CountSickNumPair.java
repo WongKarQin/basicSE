@@ -4,6 +4,35 @@ import java.util.Arrays;
 //LeetCode6142
 public class CountSickNumPair {
     public static class Solution {
+        public static int numBinarySearch(int[] nums,int target,int left,int right){
+            int index = -1;
+            if(right-left==1){
+                if(nums[right]>nums[left]){
+                    return right;
+                }else{
+                    return index;
+                }
+            }
+            if(right-left==2){
+                if(nums[right-1]>nums[left]){
+                    return right-1;
+                }else if(nums[right]>nums[left]){
+                    return right;
+                }else{
+                    return index;
+                }
+            }
+            while(left<right){
+                int mid = (right-left)/2 +left;
+                if(nums[mid]>target){
+                    index = mid;
+                    right = mid;
+                }else{
+                    left =mid+1;
+                }
+            }
+            return index;
+        }
         public long countBadPairs(int[] nums) {
 
             int len = nums.length;
@@ -18,35 +47,13 @@ public class CountSickNumPair {
 
             for (int i = 0; i < len-1; i++) {
                 int target = arr[i];
-                int l;
-//                int r = len - 1;
-//                int index = find(arr, l, r, target);
-//                if (index != -1)
-//                    ans += len - index;
-                for(l=i+1;l<len;l++){
-                    if(arr[l]>target)break;
-                }
-                ans += len-l;
+                int l = i;
+                int r = len - 1;
+                int index = numBinarySearch(arr, target, l, r);
+                if(index!=-1) ans += len-index;
             }
 
             return ans;
-        }
-
-        int find(int[] arr, int left, int right, int target) {
-            if (left > right) {
-                return -1;
-            }
-            int l = left;
-            int r = right;
-            while (l < r) {
-                int m = l + (r - l) / 2;
-                if (arr[m] > target) {
-                    r = m;
-                } else {
-                    l = m + 1;
-                }
-            }
-            return arr[l] > target ? l : -1;
         }
     }
 
